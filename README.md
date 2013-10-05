@@ -6,6 +6,8 @@ This is a tool for editing [MiniGal Nano's](https://github.com/sebsauvage/Miniga
 * Python 3
 * Licence Apache v2
 
+* Not working!!
+
 
 Installation
 ============
