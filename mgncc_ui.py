@@ -32,7 +32,7 @@ class Ui(MTk.Tk):
         self.path_txt_line = MTk.Entry(self, textvariable=self.path_txt, width=90)
         self.path_txt_line.grid(column=0, row=1, sticky='EW')
 
-        self.browse_btn = MTk.Button(self, text="Browse", command=self.browse)
+        self.browse_btn = MTk.Button(self, text="Browse", command=self.ctrl.p2c_browse)
         self.browse_btn.grid(column=1, row=1, sticky='EW')
 
         ########
@@ -80,12 +80,12 @@ class Ui(MTk.Tk):
         self.image_lbl.grid(column=0, row=8, sticky='EW')
 
         self.img_btn_panel = MTk.Frame(self)
-        self.img_btn_panel.grid(column=1, row=8, sticky='EW')
+        self.img_btn_panel.grid(column=1, row=8, sticky='NW')
 
-        self.nxt_img_btn = MTk.Button(self.img_btn_panel, text="Next", command=self._next_)
+        self.nxt_img_btn = MTk.Button(self.img_btn_panel, text="Next", command=self.ctrl.p2c_next)
         self.nxt_img_btn.pack(anchor="n")
 
-        self.nxt_img_btn = MTk.Button(self.img_btn_panel, text="Previous", command=self._previous_)
+        self.nxt_img_btn = MTk.Button(self.img_btn_panel, text="Previous", command=self.ctrl.p2c_previous)
         self.nxt_img_btn.pack(anchor="s")
 
         ########
@@ -98,15 +98,10 @@ class Ui(MTk.Tk):
         self.mainloop()
         self.destroy()
 
-    def browse(self):
-        pass
-
-    def _next_(self):
-        pass
-
-    def _previous_(self):
-        pass
-
-    def show_picture(self, img_path):
+    def dispay_picture(self, img_path):
         img = MTk.PhotoImage(file=img_path)
         self.image_lbl.configure(image=img)
+
+    def setPath(self, path):
+        self.path_txt.insert(0, "")
+        self.path_txt.insert(0, path)
